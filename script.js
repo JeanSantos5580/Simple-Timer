@@ -34,9 +34,9 @@ function incrementMinute() {
 
 function incrementHour() {
   textHour += 1;
-  let counterHour = textHour <= 23 ? textHour : (textHour = 0);
+  let counterHour = textHour <= 23.59 ? textHour : (textHour = 0);
   hour.innerHTML = addZero(counterHour);
-  return addZero(counterHour);
+  return console.log(addZero(counterHour));
 }
 
 function initTimer() {
@@ -48,7 +48,7 @@ function initTimer() {
 
   timerSecond = setInterval(incrementSecond, 1000);
   timerMinute = setInterval(incrementMinute, 60000);
-  timerHour = setInterval(incrementHour, 1440000);
+  timerHour = setInterval(incrementHour, 3600000);
 }
 
 function stopTimer() {
@@ -79,7 +79,6 @@ buttonIniciar.addEventListener("click", (e) => {
 buttonPausar.addEventListener("click", (e) => {
   stopTimer();
 });
-
 buttonZerar.addEventListener("click", (e) => {
   eraseTimer();
 });
